@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MoviesDetailsActivity">
+    tools:context=".MoviesDetailsActivity"
+    android:background="@drawable/gradient_background">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/movies_details_title"
@@ -25,6 +26,7 @@
         app:layout_constraintTop_toBottomOf="@+id/movies_details_title">
 
         <androidx.appcompat.widget.AppCompatImageView
+
             android:id="@+id/movies_details_image_banner"
             android:layout_width="525dp"
             android:layout_height="300dp"
