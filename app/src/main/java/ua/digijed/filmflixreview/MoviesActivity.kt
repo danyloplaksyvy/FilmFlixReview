@@ -1,8 +1,10 @@
 package ua.digijed.filmflixreview
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -33,14 +35,14 @@ class MoviesActivity : AppCompatActivity() {
         }
 
 
-        val apiInterface = ApiInterface.create().getMovies("5339b0f167df7c2e6063fab4895fcd00")
+        val apiInterface = ApiInterface.create().getMovies("17b7911e7f2f6203fd7d777a337fd393")
 
         //apiInterface.enqueue( Callback<List<Movie>>())
-        apiInterface.enqueue( object : Callback<Movies> {
+        apiInterface.enqueue( object : Callback<Movies>, CustomAdapter.ItemClickListener {
             override fun onResponse(call: Call<Movies>?, response: Response<Movies>?) {
                 Log.d("testLogs","OnResponse Success ${call.toString()} ${response?.body()?.results}")
                 // This will pass the ArrayList to our Adapter
-                val adapter = CustomAdapter(response?.body()?.results)
+                val adapter = CustomAdapter(response?.body()?.results, this)
 
                 // Setting the Adapter with the recyclerview
                 recyclerview.adapter = adapter
@@ -48,6 +50,12 @@ class MoviesActivity : AppCompatActivity() {
 
             override fun onFailure(call: Call<Movies>?, t: Throwable?) {
                 Log.d("testLogs","OnFailure : ${t?.message}")
+            }
+
+            override fun onItemClick(id: Int) {
+                val intent = Intent(this@MoviesActivity, MoviesDetailsActivity::class.java)
+                intent.putExtra("id", id)
+                startActivity(intent)
             }
         })
     }

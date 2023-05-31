@@ -27,6 +27,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
+//        val intentToAnotherScreen = Intent(this,MoviesActivity::class.java)
+//        startActivity(intentToAnotherScreen)
         // Choose authentication providers
         database = Firebase.database.reference
         val providers = arrayListOf(
