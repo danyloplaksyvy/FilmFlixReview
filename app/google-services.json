@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "578406597033",
+    "project_id": "filmflixreview",
+    "storage_bucket": "filmflixreview.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:578406597033:android:742e04dae6ca32102384b8",
+        "android_client_info": {
+          "package_name": "ua.digijed.filmflixreview"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYOsyNITq4EQbUrZKaiG-QXoFUEuDvSkY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
