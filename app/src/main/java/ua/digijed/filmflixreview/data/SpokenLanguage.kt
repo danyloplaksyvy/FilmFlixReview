@@ -1,4 +1,4 @@
-package ua.digijed.filmflixreview
+package ua.digijed.filmflixreview.data
 
 data class SpokenLanguage(
     val english_name: String,

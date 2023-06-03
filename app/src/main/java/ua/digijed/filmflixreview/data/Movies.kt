@@ -1,4 +1,4 @@
-package ua.digijed.filmflixreview
+package ua.digijed.filmflixreview.data
 
 data class Movies(
     val page: Int,

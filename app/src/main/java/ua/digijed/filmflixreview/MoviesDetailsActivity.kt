@@ -8,6 +8,8 @@ import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.Callback
+import ua.digijed.filmflixreview.apis.ApiInterface
+import ua.digijed.filmflixreview.data.MoviesDetails
 
 class MoviesDetailsActivity : AppCompatActivity() {
     private lateinit var title: TextView
