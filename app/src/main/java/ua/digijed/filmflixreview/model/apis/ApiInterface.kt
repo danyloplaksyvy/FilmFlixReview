@@ -1,4 +1,4 @@
-package ua.digijed.filmflixreview.apis
+package ua.digijed.filmflixreview.model.apis
 
 import retrofit2.Call
 import retrofit2.Retrofit
@@ -9,13 +9,17 @@ import retrofit2.http.Query
 import ua.digijed.filmflixreview.data.Movies
 import ua.digijed.filmflixreview.data.MoviesDetails
 
+
 interface ApiInterface {
 
     @GET("3/movie/popular")
-    fun getMovies(@Query("api_key") sort : String) : Call<Movies>
+    fun getMovies(@Query("api_key") sort : String,
+                  @Query("language") language: String,
+                  @Query("page") page : Int,
+                  ): Call<Movies>
 
     @GET("3/movie/{movie_id}")
-    fun getMovieDetails(@Path("movie_id") movieId : Int, @Query ( "api_key") sort : String ) : Call<MoviesDetails>
+    fun getMovieDetails(@Path("movie_id") movieId : Int, @Query ( "api_key") apiKey : String ) : Call<MoviesDetails>
 
     companion object {
 

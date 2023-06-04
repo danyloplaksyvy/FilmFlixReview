@@ -1,4 +1,4 @@
-package ua.digijed.filmflixreview
+package ua.digijed.filmflixreview.view.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,10 +6,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
+import ua.digijed.filmflixreview.R
 import ua.digijed.filmflixreview.data.Result
 
-class CustomAdapter(
-    private val mList: List<Result>?, val mItemClickListener: ItemClickListener
+class CustomAdapter(private val mList: List<Result>?, val mItemClickListener: ItemClickListener
 ) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
     interface ItemClickListener {
@@ -28,12 +28,8 @@ class CustomAdapter(
 
     // binds the list items to a view
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
-        val ItemsViewModel = mList?.get(position)
-
         Picasso.get().load("https://image.tmdb.org/t/p/w500" + mList?.get(position)?.poster_path)
             .into(holder.imageView);
-
 
     }
 
@@ -45,7 +41,6 @@ class CustomAdapter(
     // Holds the views for adding it to image and text
     inner class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
         val imageView: ImageView = itemView.findViewById(R.id.imageview)
-
         init {
             ItemView.setOnClickListener {
                 mList?.get(position)?.id?.let { it -> mItemClickListener.onItemClick(it) }
